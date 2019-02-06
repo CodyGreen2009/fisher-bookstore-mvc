@@ -1,21 +1,28 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 
+// this file shows how to do arrtibute-based routing
+
 namespace Fisher.Bookstore.Controllers
 {
+    [Route("books")]
     public class BooksController : Controller
       {
+         [Route("")] //handles the route '/books'
+         [Route("index")] //handles route '/books/index'
         public IActionResult Index()
         {
-            return Content("Books Controller Index");
+            return View();
         }
+         [Route("new")]
          public IActionResult New()
         {
-            return Content("Books Controller New");
+           return View();
         }
-         public IActionResult best_sellers()
+         [Route("best-sellers")]
+         public IActionResult Best()
         {
-            return Content("Books Controller Best");
+            return View();
         }
     }
 }
